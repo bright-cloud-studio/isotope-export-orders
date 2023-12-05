@@ -36,6 +36,9 @@ class DcaCallback extends Backend
         if (Input::get('key') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
 
             print_r($_POST);
+            echo "<hr>";
+            print_r($dataContainer);
+            echo "<hr>";
             
             echo "HIT!";
         }
