@@ -14,7 +14,7 @@ namespace Bcs\Backend;
 
 use Contao\StringUtil;
 
-class Export
+class ButtonCallback
 {
 
     // Adds the "Export to CSV" button to the "editAll" mode on the 'Orders' page
