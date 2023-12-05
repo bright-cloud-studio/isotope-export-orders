@@ -2,6 +2,8 @@
 
 namespace Bcs\Backend;
 
+use Contao\StringUtil;
+
 class Export
 {
     public function addExportButton(array $buttons): array {
