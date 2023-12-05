@@ -35,10 +35,10 @@ class DcaCallback extends Backend
         // If the act is our custom one
         if (Input::get('key') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
 
-            print_r($_POST);
-            echo "<hr>";
-            print_r($dataContainer);
-            echo "<hr>";
+            foreach($_POST as $key => $value)
+            {
+                echo "KEY: " . $key . " - VALUE: " . $value . "<br>";
+            }
             
             echo "HIT!";
         }
