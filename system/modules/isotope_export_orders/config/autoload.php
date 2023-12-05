@@ -13,5 +13,5 @@
 ClassLoader::addClasses(array
 (
     // Class that contains all of our functionality for the Isotope Hooks
-    'Bcs\Backend\Export'         => 'system/modules/isotope_export_orders/library/Bcs/Backend/Export.php'
+    'Bcs\Backend\ButtonCallback'         => 'system/modules/isotope_export_orders/library/Bcs/Backend/ButtonCallback.php'
 ));
