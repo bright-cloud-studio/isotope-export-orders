@@ -25,8 +25,11 @@ class DcaCallback extends Backend
         
         // Is available after button submission.
         if (Input::post('FORM_SUBMIT') === 'tl_select') {
-            echo "BING BONG";
-            die();
+            
+            if (isset($_POST[DocumentPrinter::PRINT_ALL_DOCUMENTS_BUTTON_ID])) {
+                // Replace default 'select' action with 'print' action.
+                $this->redirect(str_replace('act=select', 'act=' . DocumentPrinter::PRINT_ALL_DOCUMENTS_ACTION_NAME, Environment::get('request')));
+            }
         }
     
     }
