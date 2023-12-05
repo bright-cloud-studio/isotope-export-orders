@@ -31,6 +31,15 @@ class DcaCallback extends Backend
                 $this->redirect(str_replace('act=select', 'act=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
             }
         }
+
+        // Is available on the 'print all documents' page.
+        if (Input::get('act') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
+            $dataContainer->{OrderExporter::EXPORT_TO_CSV_ACTION_NAME} = function() {
+                
+                $orderExporter = new OrderExporter();
+                return $orderExporter->exportToCSV();
+            };
+        }
     
     }
 
