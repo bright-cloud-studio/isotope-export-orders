@@ -26,9 +26,9 @@ class DcaCallback extends Backend
         // Is available after button submission.
         if (Input::post('FORM_SUBMIT') === 'tl_select') {
             
-            if (isset($_POST[DocumentPrinter::PRINT_ALL_DOCUMENTS_BUTTON_ID])) {
+            if (isset($_POST[OrderExporter::EXPORT_TO_CSV_BUTTON_ID])) {
                 // Replace default 'select' action with 'print' action.
-                $this->redirect(str_replace('act=select', 'act=' . DocumentPrinter::PRINT_ALL_DOCUMENTS_ACTION_NAME, Environment::get('request')));
+                $this->redirect(str_replace('act=select', 'act=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
             }
         }
     
