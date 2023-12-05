@@ -23,22 +23,26 @@ class DcaCallback extends Backend
     // Called when clicking the "Export to CSV" button in "editAll" mode within the Orders page
     public function onLoad(DC_Table $dataContainer): void {
         
-        // Is available after button submission.
+        // If our 'tl_select' form has been submitted
         if (Input::post('FORM_SUBMIT') === 'tl_select') {
-            
+            //If our button ID is within the submitted forms $_POST
             if (isset($_POST[OrderExporter::EXPORT_TO_CSV_BUTTON_ID])) {
                 // Replace default 'select' action with 'print' action.
                 $this->redirect(str_replace('act=select', 'act=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
             }
         }
 
-        // Is available on the 'print all documents' page.
+        // If the act is our custom one
         if (Input::get('act') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
+            
+
+            /*
             $dataContainer->{OrderExporter::EXPORT_TO_CSV_ACTION_NAME} = function() {
                 
                 $orderExporter = new OrderExporter();
                 return $orderExporter->exportToCSV();
             };
+            */
         }
     
     }
