@@ -50,7 +50,7 @@ class OrderExporter {
     
     public function exportAll() {
         // Add the form
-			$return = '
+			return '
             <form id="test" class="tl_form tl_edit_form" method="post">
             <div class="tl_formbody_edit nogrid">
             <input type="hidden" name="FORM_SUBMIT" value="test">
