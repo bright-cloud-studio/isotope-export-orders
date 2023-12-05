@@ -21,7 +21,7 @@ class DcaCallback extends Backend
 {
 
     // Called when clicking the "Export to CSV" button in "editAll" mode within the Orders page
-    public function onLoad(Contao\DataContainer $dc): void {
+    public function onLoad(DC_Table $dataContainer): void {
         
         // If our 'tl_select' form has been submitted
         if (Input::post('FORM_SUBMIT') === 'tl_select') {
@@ -34,8 +34,9 @@ class DcaCallback extends Backend
 
         // If the act is our custom one
         if (Input::get('key') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
-            //$documentPrinter = new OrderExporter();
-            //$documentPrinter->exportAll();
+
+            print_r($_POST);
+            
             echo "HIT!";
         }
     
