@@ -34,8 +34,9 @@ class DcaCallback extends Backend
 
         // If the act is our custom one
         if (Input::get('key') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
-            $documentPrinter = new OrderExporter();
-            $documentPrinter->exportAll();
+            //$documentPrinter = new OrderExporter();
+            //$documentPrinter->exportAll();
+            echo "HIT!";
         }
     
     }
