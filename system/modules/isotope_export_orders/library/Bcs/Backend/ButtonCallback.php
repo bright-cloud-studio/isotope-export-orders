@@ -19,7 +19,7 @@ class ButtonCallback
 
     // Adds the "Export to CSV" button to the "editAll" mode on the 'Orders' page
     public function addExportButton(array $buttons): array {
-        $buttons['export_all_orders'] = '<button type="submit" name="export_all_orders" id="export_all_orders" class="tl_submit">' . StringUtil::specialchars($GLOBALS['TL_LANG']['tl_iso_product_collection']['export_all_orders']) . '</button> ';
+        $buttons['export_all_orders'] = '<button type="submit" name="export_to_csv" id="export_to_csv" class="tl_submit">' . StringUtil::specialchars($GLOBALS['TL_LANG']['tl_iso_product_collection']['export_all_orders']) . '</button> ';
         return $buttons;
     }
     
