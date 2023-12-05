@@ -28,16 +28,14 @@ class DcaCallback extends Backend
             //If our button ID is within the submitted forms $_POST
             if (isset($_POST[OrderExporter::EXPORT_TO_CSV_BUTTON_ID])) {
                 // Replace default 'select' action with 'print' action.
-                $this->redirect(str_replace('act=select', 'act=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
+                $this->redirect(str_replace('act=select', 'key=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
             }
         }
 
         // If the act is our custom one
-        if (Input::get('act') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
-           $dataContainer->{OrderExporter::EXPORT_TO_CSV_ACTION_NAME} = function() {
-                $documentPrinter = new DocumentPrinter();
-                return $documentPrinter->printAllDocuments();
-            };
+        if (Input::get('key') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
+            $documentPrinter = new OrderExporter();
+            return $documentPrinter->exportAll();
         }
     
     }
