@@ -27,12 +27,24 @@ class DcaCallback extends Backend
         if (Input::post('FORM_SUBMIT') === 'tl_select') {
             //If our button ID is within the submitted forms $_POST
             if (isset($_POST[OrderExporter::EXPORT_TO_CSV_BUTTON_ID])) {
+
+                // STEP ONE: Use the IDs in $_POST to get our orders
+
+                // STEP TWO: Assemble our CSV string by looping through those orders
+
+                // STEP THREE: Push that string to a file and have the user download it
+
+                // STEP FOUR: PEACE
+
+
+
                 // Replace default 'select' action with 'print' action.
-                $this->redirect(str_replace('act=select', 'key=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
+                //$this->redirect(str_replace('act=select', 'key=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
             }
         }
 
-        // If the act is our custom one
+        /*
+        // Use this to change things based on the key
         if (Input::get('key') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
 
             foreach($_POST as $key => $value)
@@ -42,6 +54,7 @@ class DcaCallback extends Backend
             
             echo "HIT!";
         }
+        */
     
     }
 
