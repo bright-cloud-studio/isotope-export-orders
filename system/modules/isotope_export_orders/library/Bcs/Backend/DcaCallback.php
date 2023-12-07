@@ -30,6 +30,9 @@ class DcaCallback extends Backend
 
                 // STEP ONE: Use the IDs in $_POST to get our orders
 
+                print_r($_POST);
+                
+
                 // STEP TWO: Assemble our CSV string by looping through those orders
 
                 // STEP THREE: Push that string to a file and have the user download it
