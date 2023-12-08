@@ -48,21 +48,10 @@ class OrderExporter {
     }
     
     
-    public function exportAll() {
-        // Add the form
-			echo '
-            <form id="test" class="tl_form tl_edit_form" method="post">
-            <div class="tl_formbody_edit nogrid">
-            <input type="hidden" name="FORM_SUBMIT" value="test">
-            <input type="hidden" name="REQUEST_TOKEN" value="test">
-            </div>
-            <div class="tl_formbody_submit">
-            <div class="tl_submit_container">
-            TEST 1 2 3 
-            </div>
-            </div>
-            </form>';
-    
+    public function exportOrders($submittedData, $formData, $files, $labels, $form)
+    {
+        echo "HIT";
+        die();
     }
 
 
