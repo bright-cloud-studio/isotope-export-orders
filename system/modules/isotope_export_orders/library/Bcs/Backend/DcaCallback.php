@@ -30,23 +30,47 @@ class DcaCallback extends Backend
             
             //If our button ID is within the submitted forms $_POST
             if (isset($_POST[OrderExporter::EXPORT_TO_CSV_BUTTON_ID])) {
+                
+                // Set the content type to CSV
+                header('Content-Type: text/csv; charset=utf-8');
+                // Set the response header to specify that the file should be downloaded as an attachment
+                header('Content-Disposition: attachment; filename=data.csv');
+                // Open a file handle for writing
+                $fp = fopen('php://output', 'w');
+                
+                
+                // For each ID in the post
+                foreach($_POST['IDS'] as $order_id) {
+                    
+                    // Grab this order by using the ID from above
+                    $order = Order::findBy('id', $order_id);
+                    
+                    // Build out our order details
+                    $data = [$order->id, $order->document_number, $order->order_status, $order->date_paid, $order->date_shipped, $order->subtotal, $order->tax_free_subtotal, $order->total, $order->tax_free_total];
+
+                    // Write to our CSV file
+                    fputcsv($fp, $data);
+                    
+                }
+                
+                // Close the file handle
+                fclose($fp);
+                // Exit or we will get garbage HTML in our file
+                exit();
 
                 // Replace default 'select' action with 'print' action.
-                $this->redirect(str_replace('act=select', 'key=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
+                //$this->redirect(str_replace('act=select', 'key=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
             }
         }
 
         // Use this to change things based on the key
+        /*
         if (Input::get('key') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
-
-
             print_r($_POST);
-
-
             echo "KEY!";
         }
+        */
         
-    
     }
 
 }
