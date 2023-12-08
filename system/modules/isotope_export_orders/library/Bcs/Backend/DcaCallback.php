@@ -17,6 +17,8 @@ use Contao\DC_Table;
 use Contao\Environment;
 use Contao\Input;
 
+use Isotope\Model\ProductCollection\Order;
+
 class DcaCallback extends Backend
 {
 
@@ -25,41 +27,25 @@ class DcaCallback extends Backend
         
         // If our 'tl_select' form has been submitted
         if (Input::post('FORM_SUBMIT') === 'tl_select') {
+            
             //If our button ID is within the submitted forms $_POST
             if (isset($_POST[OrderExporter::EXPORT_TO_CSV_BUTTON_ID])) {
 
-                // STEP ONE: Use the IDs in $_POST to get our orders
-
-                echo "<pre>";
-                print_r($_POST);
-                echo "</pre>";
-                
-
-                // STEP TWO: Assemble our CSV string by looping through those orders
-
-                // STEP THREE: Push that string to a file and have the user download it
-
-                // STEP FOUR: PEACE
-
-
-
                 // Replace default 'select' action with 'print' action.
-                //$this->redirect(str_replace('act=select', 'key=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
+                $this->redirect(str_replace('act=select', 'key=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
             }
         }
 
-        /*
         // Use this to change things based on the key
         if (Input::get('key') === OrderExporter::EXPORT_TO_CSV_ACTION_NAME) {
 
-            foreach($_POST as $key => $value)
-            {
-                echo "KEY: " . $key . " - VALUE: " . $value . "<br>";
-            }
-            
-            echo "HIT!";
+
+            print_r($_POST);
+
+
+            echo "KEY!";
         }
-        */
+        
     
     }
 
