@@ -24,7 +24,7 @@ $GLOBALS['TL_DCA']['tl_iso_product_collection']['fields']['export_last'] = array
 
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['global_operations']['order_export'] = array
 (
-    'label'                   => 'TEST',
-    'href'                    => 'do=form&table=tl_order_export',
+    'label'                   => 'Configure Exports',
+    'href'                    => 'do=order_export',
     'icon' => 'modules'
 );
