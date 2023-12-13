@@ -78,7 +78,7 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{location_legend},name,alias,contact_name;{address_legend},phone,url;{website_legend},territory_notes,zip;{publish_legend},published;'
+        'default'                     => '{order_export_legend},name,filename;'
     ),
  
     // Fields
