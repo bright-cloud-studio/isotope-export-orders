@@ -14,7 +14,7 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
             'keys' => array
             (
                 'id' 	=> 	'primary',
-                'alias' =>  'index'
+                'pid' =>  'index'
             )
         )
     ),
