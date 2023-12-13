@@ -13,8 +13,7 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
         (
             'keys' => array
             (
-                'id' 	=> 	'primary',
-                'pid' =>  'index'
+                'id' 	=> 	'primary'
             )
         )
     ),
@@ -86,33 +85,33 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
     (
         'id' => array
         (
-          'sql'                     => "int(10) unsigned NOT NULL auto_increment"
+            'sql'                     => "int(10) unsigned NOT NULL auto_increment"
         ),
         'tstamp' => array
         (
-          'sql'                     => "int(10) unsigned NOT NULL default '0'"
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
-    		'sorting' => array
-    		(
-          'sql'                     => "int(10) unsigned NOT NULL default '0'"
-    		),
-    		'name' => array
-    		(
-          'label'                   => &$GLOBALS['TL_LANG']['tl_location']['name'],
-          'inputType'               => 'text',
-          'default'		              => '',
-          'search'                  => true,
-          'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
-          'sql'                     => "varchar(255) NOT NULL default ''"
-    		),
-    		'filename' => array
-    		(
-          'label'                   => &$GLOBALS['TL_LANG']['tl_location']['contact_name'],
-          'inputType'               => 'text',
-          'default'		              => '',
-          'search'                  => true,
-          'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50'),
-          'sql'                     => "varchar(255) NOT NULL default ''"
-    		)
+            'sorting' => array
+        (
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
+        ),
+        'name' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['name'],
+            'inputType'               => 'text',
+            'default'		              => '',
+            'search'                  => true,
+            'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'filename' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['contact_name'],
+            'inputType'               => 'text',
+            'default'		              => '',
+            'search'                  => true,
+            'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        )
     )
 );
