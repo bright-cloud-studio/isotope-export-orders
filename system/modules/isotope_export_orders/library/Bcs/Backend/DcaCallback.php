@@ -38,6 +38,22 @@ class DcaCallback extends Backend
                 // Open a file handle for writing
                 $fp = fopen('php://output', 'w');
                 
+            
+                // Manually write our first line which is the table headers technically
+                $data = ['order_id', 'document_number', 'order_status', 'date_paid', 'date_shipped', 'subtotal', 'tax_free_subtotal', 'total', 'tax_free_total'];
+                
+                
+                $max_products = 25;
+                
+                for ($x = 1; $x <= $max_products; $x++) {
+                    $data[] = 'prod_' . $x . '_sku';
+                    $data[] = 'prod_' . $x . '_quantity';
+                    $data[] = 'prod_' . $x . '_price';
+                }
+                
+                
+                fputcsv($fp, $data);
+                
                 
                 // For each ID in the post
                 foreach($_POST['IDS'] as $order_id) {
@@ -47,6 +63,12 @@ class DcaCallback extends Backend
                     
                     // Build out our order details
                     $data = [$order->id, $order->document_number, $order->order_status, $order->date_paid, $order->date_shipped, $order->subtotal, $order->tax_free_subtotal, $order->total, $order->tax_free_total];
+                    
+                    for ($x = 1; $x <= $max_products; $x++) {
+                        $data[] = 123;
+                        $data[] = 456;
+                        $data[] = 789;
+                    }
 
                     // Write to our CSV file
                     fputcsv($fp, $data);
