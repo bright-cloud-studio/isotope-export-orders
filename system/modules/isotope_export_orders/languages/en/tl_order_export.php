@@ -5,9 +5,15 @@ $GLOBALS['TL_LANG']['tl_order_export']['order_export_legend'] 	= 'Export Configu
 $GLOBALS['TL_LANG']['tl_order_export']['order_legend'] 	= 'Order Settings';
 $GLOBALS['TL_LANG']['tl_order_export']['product_legend'] 	= 'Product Settings';
 
-/* Unique Fields */
+/* Config Fields */
 $GLOBALS['TL_LANG']['tl_order_export']['config_name']  = array('Configuration Name', 'Enter the name for this configuration');
 $GLOBALS['TL_LANG']['tl_order_export']['csv_filename'] = array('CSV Filename', 'Enter the filename for the exported CSV file');
+
+/* Order Fields */
+$GLOBALS['TL_LANG']['tl_order_export']['order_id']      = array('Order ID', 'Include the "Order ID" field in the exported file');
+$GLOBALS['TL_LANG']['tl_order_export']['order_number']  = array('Order Number', 'Include the "Order Number" field in the exported file');
+$GLOBALS['TL_LANG']['tl_order_export']['order_status']  = array('Order Status', 'Include the "Order Status" field in the exported file');
+
 
 /* Buttons */
 $GLOBALS['TL_LANG']['tl_order_export']['new']   		 	= array('New record', 'Add a new record');
