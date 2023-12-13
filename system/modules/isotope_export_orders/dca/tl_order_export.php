@@ -95,18 +95,18 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
         (
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
-        'name' => array
+        'config_name' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['name'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['config_name'],
             'inputType'               => 'text',
             'default'		              => '',
             'search'                  => true,
             'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
-        'filename' => array
+        'csv_filename' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['contact_name'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['csv_filename'],
             'inputType'               => 'text',
             'default'		              => '',
             'search'                  => true,
