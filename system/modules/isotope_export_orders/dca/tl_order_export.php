@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{order_export_legend},config_name,csv_filename;'
+        'default'                     => '{order_export_legend},config_name,csv_filename;{order_legend},order_id, order_number, order_status;'
     ),
  
     // Fields
@@ -95,6 +95,7 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
         (
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
+        // CONFIG SETTINGS
         'config_name' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_location']['config_name'],
@@ -112,6 +113,28 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
             'search'                  => true,
             'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
-        )
+        ),
+        // ORDER SETTINGS
+        'order_id' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['order_id'],
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'order_number' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['order_number'],
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'order_status' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['order_status'],
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
     )
 );
