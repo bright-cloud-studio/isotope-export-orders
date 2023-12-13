@@ -24,13 +24,13 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
         'sorting' => array
         (
             'mode'                    => 1,
-            'fields'                  => array('name'),
+            'fields'                  => array('config_name'),
             'flag'                    => 1,
             'panelLayout'             => 'filter;search,limit'
         ),
         'label' => array
         (
-            'fields'                  => array('name', 'filename'),
+            'fields'                  => array('config_name', 'csv_filename'),
             'format'                  => '%s (%s)'
         ),
         'global_operations' => array
