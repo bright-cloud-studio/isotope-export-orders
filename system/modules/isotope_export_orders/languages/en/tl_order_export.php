@@ -1,8 +1,9 @@
 <?php
 
 /* Legends */
-$GLOBALS['TL_LANG']['tl_brand']['brand_legend'] 	= 'Brand Values';
-$GLOBALS['TL_LANG']['tl_brand']['header_legend'] 	= 'Header Values';
+$GLOBALS['TL_LANG']['tl_brand']['order_export_legend'] 	= 'Export Configuration Settings';
+$GLOBALS['TL_LANG']['tl_brand']['order_legend'] 	= 'Order Settings';
+$GLOBALS['TL_LANG']['tl_brand']['product_legend'] 	= 'Product Settings';
 
 /* Unique Fields */
 $GLOBALS['TL_LANG']['tl_order_export']['config_name']  = array('Configuration Name', 'Enter the name for this configuration');
