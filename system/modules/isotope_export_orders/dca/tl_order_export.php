@@ -99,7 +99,7 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_location']['config_name'],
             'inputType'               => 'text',
-            'default'		              => '',
+            'default'		          => '',
             'search'                  => true,
             'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
@@ -108,7 +108,7 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_location']['csv_filename'],
             'inputType'               => 'text',
-            'default'		              => '',
+            'default'		          => '',
             'search'                  => true,
             'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
