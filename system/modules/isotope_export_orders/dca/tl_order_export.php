@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{order_export_legend},config_name,csv_filename;{order_legend},order_id, order_number, order_status;{product_legend},product_id, product_name, product_sku, product_quantity;'
+        'default'                     => '{order_export_legend},config_name,csv_filename,include_headers;{order_legend},order_id, order_number, order_status;{product_legend},product_id, product_name, product_sku, product_quantity;'
     ),
  
     // Fields
@@ -113,6 +113,13 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
             'search'                  => true,
             'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'include_headers' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_order_export']['include_headers'],
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "char(1) NOT NULL default ''"
         ),
         // ORDER SETTINGS
         'order_id' => array
