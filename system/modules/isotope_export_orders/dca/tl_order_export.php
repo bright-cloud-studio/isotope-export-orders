@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{order_export_legend},config_name,csv_filename;{order_legend},order_id, order_number, order_status;'
+        'default'                     => '{order_export_legend},config_name,csv_filename;{order_legend},order_id, order_number, order_status;{product_legend}product_id, product_name, product_sku, product_quantity;'
     ),
  
     // Fields
@@ -132,6 +132,35 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
         'order_status' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_location']['order_status'],
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        // PRODUCT SETTINGS
+        'product_id' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['product_id'],
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'product_name' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['product_name'],
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'product_sku' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['product_sku'],
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'product_quantity' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_location']['product_quantity'],
             'inputType'               => 'checkbox',
             'eval'                    => array('tl_class'=>'w50'),
             'sql'                     => "char(1) NOT NULL default ''"
