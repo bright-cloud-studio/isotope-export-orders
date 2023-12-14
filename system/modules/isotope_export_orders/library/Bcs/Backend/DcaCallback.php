@@ -28,11 +28,14 @@ class DcaCallback extends Backend
             
             //If our button ID is within the submitted forms $_POST
             if (isset($_POST[OrderExporter::EXPORT_TO_CSV_BUTTON_ID])) {
-                
+
+                // Get all of our export configurations
                 $export_configs = OrderExport::findAll();
-                
+
+                // Loop through each export configuration
                 foreach($export_configs as $config) {
-                    
+
+                    // How many products we need to account for
                     $max_products = 0;
                     
                     // Set the content type to CSV
@@ -44,21 +47,23 @@ class DcaCallback extends Backend
                     
                     
                     if($config->include_headers) {
-                        
-                        // Manually write our first line which is the table headers technically
-                        $data = ['order_id', 'document_number', 'order_status', 'date_paid', 'date_shipped', 'subtotal', 'tax_free_subtotal', 'total', 'tax_free_total'];
-                        
-                        
+
+                        $headers = [];
+                        foreach($age as $key => $val) {
+                            $headers[] = $key
+                        }
+
+                        /*
                         $max_products = 2;
-                        
                         for ($x = 1; $x <= $max_products; $x++) {
                             $data[] = 'prod_' . $x . '_sku';
                             $data[] = 'prod_' . $x . '_quantity';
                             $data[] = 'prod_' . $x . '_price';
                         }
+                        */
                         
                         
-                        fputcsv($fp, $data);
+                        fputcsv($fp, $headers);
                     }
                     
                     
@@ -78,7 +83,7 @@ class DcaCallback extends Backend
                         }
     
                         // Write to our CSV file
-                        fputcsv($fp, $data);
+                        //fputcsv($fp, $data);
                     }
                     
                     // Close the file handle
