@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * Bright Cloud Studio's Isotope Export Orders
+ * Copyright (C) 2023-2024 Bright Cloud Studio
+ *
+ * @package    bright-cloud-studio/isotope-export-orders
+ * @link       https://www.brightcloudstudio.com/
+ * @license    http://opensource.org/licenses/lgpl-3.0.html
+*/
+
 use Bcs\Backend\ButtonCallback;
 use Bcs\Backend\DcaCallback;
 
@@ -7,7 +16,7 @@ use Bcs\Backend\DcaCallback;
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['config']['onload_callback'][] = [DcaCallback::class, 'onLoad'];
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['select']['buttons_callback'][] = [ButtonCallback::class, 'addExportButton'];
 
-/* Custom Fields */
+/* Add new fields */
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['fields']['export_last'] = array
 (
     'label'                   => &$GLOBALS['TL_LANG']['tl_iso_product_collection']['export_last'],
@@ -18,10 +27,7 @@ $GLOBALS['TL_DCA']['tl_iso_product_collection']['fields']['export_last'] = array
     'sql'                     => "varchar(255) NOT NULL default ''",
 );
 
-
-
-
-
+/* Register new global operation */
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['global_operations']['order_export'] = array
 (
     'label'                   => 'Configure Exports',
