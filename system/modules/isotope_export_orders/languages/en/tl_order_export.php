@@ -12,6 +12,8 @@
 /* Legends */
 $GLOBALS['TL_LANG']['tl_order_export']['order_export_legend'] 	= 'Export Configuration Settings';
 $GLOBALS['TL_LANG']['tl_order_export']['order_legend'] 	= 'Order Settings';
+$GLOBALS['TL_LANG']['tl_order_export']['billing_address_legend'] 	= 'Billing Address Settings';
+$GLOBALS['TL_LANG']['tl_order_export']['shipping_address_legend'] 	= 'Shipping Address Settings';
 $GLOBALS['TL_LANG']['tl_order_export']['product_legend'] 	= 'Product Settings';
 
 /* Config Fields */
