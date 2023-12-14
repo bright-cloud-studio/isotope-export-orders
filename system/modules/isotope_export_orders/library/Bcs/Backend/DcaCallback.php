@@ -12,6 +12,8 @@
 
 namespace Bcs\Backend;
 
+use Bcs\Model\OrderExport;
+
 use Contao\Backend;
 use Contao\DC_Table;
 use Contao\Environment;
@@ -31,54 +33,75 @@ class DcaCallback extends Backend
             //If our button ID is within the submitted forms $_POST
             if (isset($_POST[OrderExporter::EXPORT_TO_CSV_BUTTON_ID])) {
                 
-                // Set the content type to CSV
-                header('Content-Type: text/csv; charset=utf-8');
-                // Set the response header to specify that the file should be downloaded as an attachment
-                header('Content-Disposition: attachment; filename=data.csv');
-                // Open a file handle for writing
-                $fp = fopen('php://output', 'w');
                 
-            
-                // Manually write our first line which is the table headers technically
-                $data = ['order_id', 'document_number', 'order_status', 'date_paid', 'date_shipped', 'subtotal', 'tax_free_subtotal', 'total', 'tax_free_total'];
+                $export_configs = OrderExport::findAll();
                 
-                
-                $max_products = 25;
-                
-                for ($x = 1; $x <= $max_products; $x++) {
-                    $data[] = 'prod_' . $x . '_sku';
-                    $data[] = 'prod_' . $x . '_quantity';
-                    $data[] = 'prod_' . $x . '_price';
-                }
-                
-                
-                fputcsv($fp, $data);
-                
-                
-                // For each ID in the post
-                foreach($_POST['IDS'] as $order_id) {
+                foreach($export_configs as $config) {
                     
-                    // Grab this order by using the ID from above
-                    $order = Order::findBy('id', $order_id);
+                    $max_products = 0;
                     
-                    // Build out our order details
-                    $data = [$order->id, $order->document_number, $order->order_status, $order->date_paid, $order->date_shipped, $order->subtotal, $order->tax_free_subtotal, $order->total, $order->tax_free_total];
+                    // Set the content type to CSV
+                    header('Content-Type: text/csv; charset=utf-8');
+                    // Set the response header to specify that the file should be downloaded as an attachment
+                    header('Content-Disposition: attachment; filename='. $config->csv_filename .'.csv');
+                    // Open a file handle for writing
+                    $fp = fopen('php://output', 'w');
                     
-                    for ($x = 1; $x <= $max_products; $x++) {
-                        $data[] = 123;
-                        $data[] = 456;
-                        $data[] = 789;
+                    
+                    if($config->include_headers) {
+                        
+                        // Manually write our first line which is the table headers technically
+                        $data = ['order_id', 'document_number', 'order_status', 'date_paid', 'date_shipped', 'subtotal', 'tax_free_subtotal', 'total', 'tax_free_total'];
+                        
+                        
+                        $max_products = 2;
+                        
+                        for ($x = 1; $x <= $max_products; $x++) {
+                            $data[] = 'prod_' . $x . '_sku';
+                            $data[] = 'prod_' . $x . '_quantity';
+                            $data[] = 'prod_' . $x . '_price';
+                        }
+                        
+                        
+                        fputcsv($fp, $data);
                     }
-
-                    // Write to our CSV file
-                    fputcsv($fp, $data);
+                    
+                    
+                    // For each ID in the post
+                    foreach($_POST['IDS'] as $order_id) {
+                        
+                        // Grab this order by using the ID from above
+                        $order = Order::findBy('id', $order_id);
+                        
+                        // Build out our order details
+                        $data = [$order->id, $order->document_number, $order->order_status, $order->date_paid, $order->date_shipped, $order->subtotal, $order->tax_free_subtotal, $order->total, $order->tax_free_total];
+                        
+                        for ($x = 1; $x <= $max_products; $x++) {
+                            $data[] = 123;
+                            $data[] = 456;
+                            $data[] = 789;
+                        }
+    
+                        // Write to our CSV file
+                        fputcsv($fp, $data);
+                        
+                    }
+                    
+                    // Close the file handle
+                    fclose($fp);
+                    // Exit or we will get garbage HTML in our file
+                    exit();
+                    
+                    
                     
                 }
                 
-                // Close the file handle
-                fclose($fp);
-                // Exit or we will get garbage HTML in our file
-                exit();
+                
+                
+                
+                
+                
+                
 
                 // Replace default 'select' action with 'print' action.
                 //$this->redirect(str_replace('act=select', 'key=' . OrderExporter::EXPORT_TO_CSV_ACTION_NAME, Environment::get('request')));
