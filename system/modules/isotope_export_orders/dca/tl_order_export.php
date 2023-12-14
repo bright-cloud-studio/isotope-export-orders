@@ -1,9 +1,17 @@
 <?php
+
+/*
+ * Bright Cloud Studio's Isotope Export Orders
+ * Copyright (C) 2023-2024 Bright Cloud Studio
+ *
+ * @package    bright-cloud-studio/isotope-export-orders
+ * @link       https://www.brightcloudstudio.com/
+ * @license    http://opensource.org/licenses/lgpl-3.0.html
+*/
  
 /* Table tl_location */
 $GLOBALS['TL_DCA']['tl_order_export'] = array
 (
- 
     // Config
     'config' => array
     (
@@ -17,7 +25,6 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
             )
         )
     ),
- 
     // List
     'list' => array
     (
@@ -73,13 +80,11 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
             )
         )
     ),
- 
     // Palettes
     'palettes' => array
     (
         'default'                     => '{order_export_legend},config_name,csv_filename,include_headers;{order_legend},order_id, order_number, order_status;{product_legend},product_id, product_name, product_sku, product_quantity;'
     ),
- 
     // Fields
     'fields' => array
     (
