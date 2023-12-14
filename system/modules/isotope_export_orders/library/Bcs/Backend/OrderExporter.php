@@ -23,7 +23,8 @@ use Contao\System;
 use Isotope\Frontend;
 use Isotope\Model\ProductCollection\Order;
 
-class OrderExporter {
+class OrderExporter
+{
 
     /** The 'print all documents' form id */
     protected const EXPORT_TO_CSV_FROM_ID = 'isotope_export_to_csv';
@@ -40,20 +41,16 @@ class OrderExporter {
     /** The url of the current request */
     protected $currentRequestUrl;
 
-
-
+    /* Construction function called when initialized */
     public function __construct() {
         $this->logger = System::getContainer()->get('monolog.logger.contao');
         $this->currentRequestUrl = Environment::get('request');
     }
-    
-    
+
+    /* Function we probably dont need anymore */
     public function exportOrders($submittedData, $formData, $files, $labels, $form)
     {
         echo "HIT";
         die();
     }
-
-
-
 }
