@@ -46,12 +46,67 @@ class DcaCallback extends Backend
                     $fp = fopen('php://output', 'w');
                     
                     
+                    
                     if($config->include_headers) {
 
                         $headers = [];
-                        foreach($age as $key => $val) {
-                            $headers[] = $key
-                        }
+                        
+                        /* Order Fields */
+                        if($config->order_id) { $headers[] = 'order_id'; }
+                        if($config->order_number) { $headers[] = 'order_number'; }
+                        if($config->order_status) { $headers[] = 'order_status'; }
+                        if($config->payment_date) { $headers[] = 'payment_date'; }
+                        if($config->shipped_date) { $headers[] = 'shipped_date'; }
+                        if($config->payment_method) { $headers[] = 'payment_method'; }
+                        if($config->shipping_method) { $headers[] = 'shipping_method'; }
+                        if($config->subtotal) { $headers[] = 'subtotal'; }
+                        if($config->subtotal_without_tax) { $headers[] = 'subtotal_without_tax'; }
+                        if($config->total) { $headers[] = 'total'; }
+                        if($config->total_without_tax) { $headers[] = 'total_without_tax'; }
+                        if($config->currency) { $headers[] = 'currency'; }
+                        if($config->order_notes) { $headers[] = 'order_notes'; }
+                        
+                        /* Billing Address Fields */
+                        if($config->billing_first_name) { $headers[] = 'billing_first_name'; }
+                        if($config->billing_last_name) { $headers[] = 'billing_last_name'; }
+                        if($config->billing_date_of_birth) { $headers[] = 'billing_date_of_birth'; }
+                        if($config->billing_company) { $headers[] = 'billing_company'; }
+                        if($config->billing_street_1) { $headers[] = 'billing_street_1'; }
+                        if($config->billing_street_2) { $headers[] = 'billing_street_2'; }
+                        if($config->billing_street_3) { $headers[] = 'billing_street_3'; }
+                        if($config->billing_zip) { $headers[] = 'billing_zip'; }
+                        if($config->billing_city) { $headers[] = 'billing_city'; }
+                        if($config->billing_state) { $headers[] = 'billing_state'; }
+                        if($config->billing_country) { $headers[] = 'billing_country'; }
+                        if($config->billing_phone) { $headers[] = 'billing_phone'; }
+                        if($config->billing_email) { $headers[] = 'billing_email'; }
+                        
+                        /* Shipping Address Fields */
+                        if($config->shipping_first_name) { $headers[] = 'shipping_first_name'; }
+                        if($config->shipping_last_name) { $headers[] = 'shipping_last_name'; }
+                        if($config->shipping_date_of_birth) { $headers[] = 'shipping_date_of_birth'; }
+                        if($config->shipping_company) { $headers[] = 'shipping_company'; }
+                        if($config->shipping_street_1) { $headers[] = 'shipping_street_1'; }
+                        if($config->shipping_street_2) { $headers[] = 'shipping_street_2'; }
+                        if($config->shipping_street_3) { $headers[] = 'shipping_street_3'; }
+                        if($config->shipping_zip) { $headers[] = 'shipping_zip'; }
+                        if($config->shipping_city) { $headers[] = 'shipping_city'; }
+                        if($config->shipping_state) { $headers[] = 'shipping_state'; }
+                        if($config->shipping_country) { $headers[] = 'shipping_country'; }
+                        if($config->shipping_phone) { $headers[] = 'shipping_phone'; }
+                        if($config->shipping_email) { $headers[] = 'shipping_email'; }
+                        
+                        /* Product Fields */
+                        if($config->product_id) { $headers[] = 'product_id'; }
+                        if($config->product_name) { $headers[] = 'product_name'; }
+                        if($config->product_sku) { $headers[] = 'product_sku'; }
+                        if($config->product_price) { $headers[] = 'product_price'; }
+                        if($config->product_quantity) { $headers[] = 'product_quantity'; }
+                        if($config->product_total) { $headers[] = 'product_total'; }
+
+                        
+                        
+                        
 
                         /*
                         $max_products = 2;
