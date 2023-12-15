@@ -47,9 +47,14 @@ class DcaCallback extends Backend
                     
                     
                     
+                    // If we are including a header row
                     if($config->include_headers) {
 
+                        // Create an empty array to hold our values
                         $headers = [];
+                        
+                        // Ugly but this was the easier solution due to $config->arrData being protected and unreachable.
+                        // Maybe I'll figure out a more programatic way to accomplish this, for now it's good enough
                         
                         /* Order Fields */
                         if($config->order_id) { $headers[] = 'order_id'; }
@@ -107,7 +112,7 @@ class DcaCallback extends Backend
                         
                         
                         
-
+                        // Figure out how many products we have in total and add that many product fields to account for them
                         /*
                         $max_products = 2;
                         for ($x = 1; $x <= $max_products; $x++) {
