@@ -32,7 +32,10 @@ $GLOBALS['TL_DCA']['tl_iso_product_collection']['fields']['export_last'] = array
 (
     'label'                 => &$GLOBALS['TL_LANG']['tl_iso_product_collection']['export_last'],
     'filter'                => true,
-    'sql'                   =>  "int(10) unsigned NOT NULL default '0'"
+    'inputType'             => 'radio',
+    'options'               => array('Exported' => 'Exported', 'Not Exported' => 'Not Exported'),
+    'eval'                  => array('tl_class'=>'w50'),
+    'sql'                   => "varchar(32) NOT NULL default ''"
 );
 
 /* Register new global operation */
