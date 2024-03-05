@@ -35,7 +35,7 @@ $GLOBALS['TL_DCA']['tl_iso_product_collection']['fields']['export_last'] = array
     'inputType'             => 'radio',
     'options'               => array('Exported' => 'Exported', 'Not Exported' => 'Not Exported'),
     'eval'                  => array('tl_class'=>'w50'),
-    'sql'                   => "varchar(32) NOT NULL default ''"
+    'sql'                   => "varchar(32) NOT NULL default 'Not Exported'"
 );
 
 /* Register new global operation */
