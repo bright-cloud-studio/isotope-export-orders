@@ -16,15 +16,17 @@ use Bcs\Backend\DcaCallback;
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['config']['onload_callback'][] = [DcaCallback::class, 'onLoad'];
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['select']['buttons_callback'][] = [ButtonCallback::class, 'addExportButton'];
 
+
+ /* Extend the tl_user palettes */
+$GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['label'][''] = 'export_last';
+
+
+
 /* Add new fields */
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['fields']['export_last'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG']['tl_iso_product_collection']['export_last'],
-    'inputType'               => 'text',
-    'default'                 => '0',
-    'search'                  => true,
-    'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
-    'sql'                     => "varchar(255) NOT NULL default ''",
+    'label'                 => &$GLOBALS['TL_LANG']['tl_iso_product_collection']['export_last'],
+    'sql'                   =>  "int(10) unsigned NOT NULL default '0'"
 );
 
 /* Register new global operation */
