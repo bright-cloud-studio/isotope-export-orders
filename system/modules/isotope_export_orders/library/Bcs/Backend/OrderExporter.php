@@ -88,6 +88,9 @@ class OrderExporter
                         $args[$i] = '<span style="' . $objStatus->getColorStyles() . '">' . $objOrder->getStatusLabel() . '</span>';
                     }
                     break;
+                case 'export_last':
+                    $args[$i] = "BING";
+                    break;
             }
         }
 
