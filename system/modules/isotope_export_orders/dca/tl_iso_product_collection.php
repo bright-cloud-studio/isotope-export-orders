@@ -22,7 +22,7 @@ $GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['label']['fields'][''] =
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['label']['label_callback'] = array('Bcs\Backend\OrderExporter', 'getOrderLabel');
 
 
-$GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['sorting']['filter'] = array('Bcs\Backend\OrderExporter', 'getOrderLabel');
+//$GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['sorting']['filter'] = array('Bcs\Backend\OrderExporter', 'getOrderLabel');
 
 
 
