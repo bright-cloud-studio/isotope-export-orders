@@ -22,12 +22,16 @@ $GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['label']['fields'][''] =
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['label']['label_callback'] = array('Bcs\Backend\OrderExporter', 'getOrderLabel');
 
 
+$GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['sorting']['filter'] = array('Bcs\Backend\OrderExporter', 'getOrderLabel');
+
+
 
 
 /* Add new fields */
 $GLOBALS['TL_DCA']['tl_iso_product_collection']['fields']['export_last'] = array
 (
     'label'                 => &$GLOBALS['TL_LANG']['tl_iso_product_collection']['export_last'],
+    'filter'                => true,
     'sql'                   =>  "int(10) unsigned NOT NULL default '0'"
 );
 
