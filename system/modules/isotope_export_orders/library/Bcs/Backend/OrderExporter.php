@@ -53,4 +53,47 @@ class OrderExporter
         echo "HIT";
         die();
     }
+
+
+
+
+    public function getOrderLabel($row, $label, DataContainer $dc, array $args)
+    {
+        /** @var Order $objOrder */
+        $objOrder = Order::findByPk($row['id']);
+
+        if (null === $objOrder) {
+            return $args;
+        }
+
+        // Override system to correctly format currencies etc
+        Isotope::setConfig($objOrder->getRelated('config_id'));
+
+        foreach ($GLOBALS['TL_DCA'][$dc->table]['list']['label']['fields'] as $i => $field) {
+            switch ($field) {
+                case 'billing_address_id':
+                    if (null !== ($objAddress = $objOrder->getBillingAddress())) {
+                        $arrTokens = $objAddress->getTokens(Isotope::getConfig()->getBillingFieldsConfig());
+                        $args[$i] = $arrTokens['hcard_fn'];
+                    }
+                    break;
+
+                case 'total':
+                    $args[$i] = Isotope::formatPriceWithCurrency($row['total']);
+                    break;
+
+                case 'order_status':
+                    /** @var OrderStatus $objStatus */
+                    if (null !== ($objStatus = $objOrder->getRelated('order_status'))) {
+                        $args[$i] = '<span style="' . $objStatus->getColorStyles() . '">' . $objOrder->getStatusLabel() . '</span>';
+                    }
+                    break;
+            }
+        }
+
+        return $args;
+    }
+
+
+    
 }
