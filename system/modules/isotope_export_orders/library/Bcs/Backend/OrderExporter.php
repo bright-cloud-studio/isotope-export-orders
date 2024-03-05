@@ -20,6 +20,7 @@ use Contao\Message;
 use Contao\SelectMenu;
 use Contao\StringUtil;
 use Contao\System;
+use Isotope\Isotope;
 use Isotope\Frontend;
 use Isotope\Model\ProductCollection\Order;
 
@@ -57,7 +58,7 @@ class OrderExporter
 
 
 
-    public function getOrderLabel($row, $label, DataContainer $dc, array $args)
+    public function getOrderLabel($row, $label, \DataContainer $dc, array $args)
     {
         /** @var Order $objOrder */
         $objOrder = Order::findByPk($row['id']);
@@ -89,7 +90,11 @@ class OrderExporter
                     }
                     break;
                 case 'export_last':
-                    $args[$i] = "BING";
+                    if($args[$i] != null)
+                        $args[$i] = '<span style="background-color:#269e16;color:#fff;display:block;border-radius:2px;padding:2px 5px 3px;">Exported</span>';
+                    else
+                        $args[$i] = ' ';
+                    
                     break;
             }
         }
