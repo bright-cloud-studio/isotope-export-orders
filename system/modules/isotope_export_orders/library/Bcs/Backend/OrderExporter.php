@@ -90,7 +90,7 @@ class OrderExporter
                     }
                     break;
                 case 'export_last':
-                    if($args[$i] != null)
+                    if($args[$i] == 'Exported')
                         $args[$i] = '<span style="background-color:#269e16;color:#fff;display:block;border-radius:2px;padding:2px 5px 3px;">Exported</span>';
                     else
                         $args[$i] = ' ';
