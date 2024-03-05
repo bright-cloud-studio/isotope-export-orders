@@ -131,7 +131,7 @@ class DcaCallback extends Backend
                         
                         // Grab this order by using the ID from above
                         $order = Order::findBy('id', $order_id);
-                        $order->export_last = time();
+                        $order->export_last = 'Exported';
                         $order->save();
 
                         /* Order Fields */
