@@ -11,3 +11,5 @@
 
 /* Buttons */
 $GLOBALS['TL_LANG']['tl_iso_product_collection']['export_all_orders']   = "Export to CSV";
+
+$GLOBALS['TL_LANG']['tl_iso_product_collection']['export_last'][0]   = "Exported";
