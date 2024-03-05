@@ -18,7 +18,7 @@ $GLOBALS['TL_DCA']['tl_iso_product_collection']['select']['buttons_callback'][] 
 
 
  /* Extend the tl_user palettes */
-$GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['label'][''] = 'export_last';
+$GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['label']['fields'][''] = 'export_last';
 
 
 
