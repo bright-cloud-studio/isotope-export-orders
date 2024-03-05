@@ -17,6 +17,3 @@ $GLOBALS['BE_MOD']['isotope']['order_export'] = array(
 
 /* Models */
 $GLOBALS['TL_MODELS']['tl_order_export'] = 'Bcs\Model\OrderExport';
-
-
-$GLOBALS['TL_DCA']['tl_iso_product_collection']['list']['label']['label_callback'] = array('Bcs\Backend\OrderExporter', 'getOrderLabel');
