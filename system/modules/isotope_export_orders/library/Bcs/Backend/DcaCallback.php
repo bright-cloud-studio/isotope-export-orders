@@ -147,7 +147,24 @@ class DcaCallback extends Backend
                         
                         // Get shipping information
                         $shippingMethod = Shipping::findByPk($order->shipping_id);
-                        if($config->shipping_method) { $data[$order_count][] = $shippingMethod->name; }
+                        
+                        
+                        
+                        
+                        if($config->shipping_method) {
+
+                            if($shippingMethod->fedExAllowedServices != null) {
+                                 $ship = deserialize($order->checkout_info);
+                                
+                                $data[$order_count][] = $ship['shipping_method']['info'];
+                                
+                            } else {
+                                $data[$order_count][] = $shippingMethod->name;
+                            }
+                            
+                        }
+                        
+                        
 
                         if($config->subtotal) { $data[$order_count][] = $order->subtotal; }
                         if($config->subtotal_without_tax) { $data[$order_count][] = $order->tax_free_subtotal; }
