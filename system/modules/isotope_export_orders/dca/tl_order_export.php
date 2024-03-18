@@ -83,7 +83,7 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{order_export_legend},config_name,csv_filename,include_headers;{order_legend},order_id, order_number, order_status, payment_date, shipped_date, payment_method, shipping_method, subtotal, subtotal_without_tax, total, total_without_tax, currency, order_notes;{billing_address_legend},billing_first_name, billing_last_name, billing_date_of_birth, billing_company, billing_street_1, billing_street_2, billing_street_3, billing_zip, billing_city, billing_state, billing_country, billing_phone, billing_email;{shipping_address_legend},shipping_first_name, shipping_last_name, shipping_date_of_birth, shipping_company, shipping_street_1, shipping_street_2, shipping_street_3, shipping_zip, shipping_city, shipping_state, shipping_country, shipping_phone, shipping_email;{product_legend},product_id, product_name, product_sku, product_price, product_quantity, product_total;'
+        'default'                     => '{order_export_legend},config_name,csv_filename,include_headers;{order_legend},order_id, order_number, order_status, payment_date, shipped_date, payment_method, shipping_method, subtotal, subtotal_without_tax, total, total_without_tax, currency, order_notes;{billing_address_legend},billing_full_name, billing_first_name, billing_last_name, billing_date_of_birth, billing_company, billing_street_1, billing_street_2, billing_street_3, billing_zip, billing_city, billing_state, billing_country, billing_phone, billing_email;{shipping_address_legend},shipping_full_name, shipping_first_name, shipping_last_name, shipping_date_of_birth, shipping_company, shipping_street_1, shipping_street_2, shipping_street_3, shipping_zip, shipping_city, shipping_state, shipping_country, shipping_phone, shipping_email;{product_legend},product_id, product_name, product_sku, product_price, product_quantity, product_total;'
     ),
     // Fields
     'fields' => array
@@ -231,6 +231,13 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
 
 
         // BILLING ADDRESS SETTINGS
+        'billing_full_name' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_order_export']['billing_full_name'],
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
         'billing_first_name' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_order_export']['billing_first_name'],
@@ -327,6 +334,13 @@ $GLOBALS['TL_DCA']['tl_order_export'] = array
 
 
         // SHIPPING ADDRESS SETTINGS
+        'shipping_full_name' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_order_export']['shipping_full_name'],
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class'=>'w50'),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
         'shipping_first_name' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_order_export']['shipping_first_name'],
