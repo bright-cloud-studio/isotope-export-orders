@@ -37,6 +37,7 @@ $GLOBALS['TL_LANG']['tl_order_export']['currency']        = array('Currency', 'I
 $GLOBALS['TL_LANG']['tl_order_export']['order_notes']        = array('Order Notes', 'Include the "Order Notes" field in the exported file');
 
 /* Billing Address Fields */
+$GLOBALS['TL_LANG']['tl_order_export']['billing_full_name']        = array('Full Name', 'Include the "Full name" field in the exported file');
 $GLOBALS['TL_LANG']['tl_order_export']['billing_first_name']        = array('First Name', 'Include the "First Name" field in the exported file');
 $GLOBALS['TL_LANG']['tl_order_export']['billing_last_name']        = array('Last Name', 'Include the "Last Name" field in the exported file');
 $GLOBALS['TL_LANG']['tl_order_export']['billing_date_of_birth']        = array('Date of Birth', 'Include the "Date of Birth" field in the exported file');
@@ -52,6 +53,7 @@ $GLOBALS['TL_LANG']['tl_order_export']['billing_phone']        = array('Phone Nu
 $GLOBALS['TL_LANG']['tl_order_export']['billing_email']        = array('Email Address', 'Include the "Email Address" field in the exported file');
 
 /* Shipping Address Fields */
+$GLOBALS['TL_LANG']['tl_order_export']['shipping_full_name']        = array('Full Name', 'Include the "Full Name" field in the exported file');
 $GLOBALS['TL_LANG']['tl_order_export']['shipping_first_name']        = array('First Name', 'Include the "First Name" field in the exported file');
 $GLOBALS['TL_LANG']['tl_order_export']['shipping_last_name']        = array('Last Name', 'Include the "Last Name" field in the exported file');
 $GLOBALS['TL_LANG']['tl_order_export']['shipping_date_of_birth']        = array('Date of Birth', 'Include the "Date of Birth" field in the exported file');
