@@ -72,6 +72,7 @@ class DcaCallback extends Backend
                         if($config->order_notes) { $headers[] = 'order_notes'; }
                         
                         /* Billing Address Fields */
+                        if($config->filling_full_name) { $headers[] = 'billing_full_name'; }
                         if($config->billing_first_name) { $headers[] = 'billing_first_name'; }
                         if($config->billing_last_name) { $headers[] = 'billing_last_name'; }
                         if($config->billing_date_of_birth) { $headers[] = 'billing_date_of_birth'; }
@@ -87,6 +88,7 @@ class DcaCallback extends Backend
                         if($config->billing_email) { $headers[] = 'billing_email'; }
                         
                         /* Shipping Address Fields */
+                        if($config->shipping_full_name) { $headers[] = 'shipping_full_name'; }
                         if($config->shipping_first_name) { $headers[] = 'shipping_first_name'; }
                         if($config->shipping_last_name) { $headers[] = 'shipping_last_name'; }
                         if($config->shipping_date_of_birth) { $headers[] = 'shipping_date_of_birth'; }
@@ -175,6 +177,7 @@ class DcaCallback extends Backend
 
                         /* Billing Address Fields */
                         $b_addr = $order->getBillingAddress();
+                        if($config->billing_full_name) { $data[$order_count][] = $b_addr->firstname . ' ' . $b_addr->lastname; }
                         if($config->billing_first_name) { $data[$order_count][] = $b_addr->firstname; }
                         if($config->billing_last_name) { $data[$order_count][] = $b_addr->lastname; }
                         if($config->billing_date_of_birth) { $data[$order_count][] = $b_addr->dateOfBirth; }
@@ -191,6 +194,7 @@ class DcaCallback extends Backend
                         
                         /* Shipping Address Fields */
                         $s_addr = $order->getShippingAddress();
+                        if($config->shipping_full_name) { $data[$order_count][] = $s_addr->firstname . ' ' . $s_addr->lastname; }
                         if($config->shipping_first_name) { $data[$order_count][] = $s_addr->firstname; }
                         if($config->shipping_last_name) { $data[$order_count][] = $s_addr->lastname; }
                         if($config->shipping_date_of_birth) { $data[$order_count][] = $s_addr->dateOfBirth; }
