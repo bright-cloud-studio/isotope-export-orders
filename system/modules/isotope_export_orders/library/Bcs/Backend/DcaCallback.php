@@ -72,7 +72,7 @@ class DcaCallback extends Backend
                         if($config->order_notes) { $headers[] = 'order_notes'; }
                         
                         /* Billing Address Fields */
-                        if($config->filling_full_name) { $headers[] = 'billing_full_name'; }
+                        if($config->billing_full_name) { $headers[] = 'billing_full_name'; }
                         if($config->billing_first_name) { $headers[] = 'billing_first_name'; }
                         if($config->billing_last_name) { $headers[] = 'billing_last_name'; }
                         if($config->billing_date_of_birth) { $headers[] = 'billing_date_of_birth'; }
